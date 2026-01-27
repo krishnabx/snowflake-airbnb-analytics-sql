@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Snowflake Airbnb Analytics (Seattle)
 
 End-to-end analytics project using the Seattle Airbnb dataset.  
