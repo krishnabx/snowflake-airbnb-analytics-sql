@@ -72,7 +72,7 @@ Basic data quality checks were performed, including:
 * Referential integrity between fact and dimension tables
 * Range and sanity checks on pricing and availability metrics
 
-Validation queries are included alongside the analysis SQL.
+Basic data quality checks are included in the SQL files (clearly labeled) and focus on PK uniqueness, null checks, and join integrity.
 
 ---
 
