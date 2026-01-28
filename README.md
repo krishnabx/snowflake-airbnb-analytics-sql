@@ -1,46 +1,52 @@
 # Snowflake Airbnb Analytics (Seattle)
 
-End-to-end analytics project using the Seattle Airbnb dataset.  
-The goal of this project is to model raw Airbnb data into a clean analytical schema and answer business questions around demand, pricing, seasonality, and listing performance using SQL.
+End-to-end analytics project using the Seattle Airbnb Open Data dataset.
+The goal of this project is to model raw Airbnb data into a clean analytical (star) schema in Snowflake and answer business questions around demand, pricing, seasonality, and listing performance using SQL.
 
 ---
 
 ## Dataset
-- Source: Kaggle – Seattle Airbnb Open Data
-- Files used:
-  - calendar.csv
-  - listings.csv
-  - reviews.csv
+
+* Source: Kaggle – Seattle Airbnb Open Data
+* Files used:
+
+  * `calendar.csv`
+  * `listings.csv`
+  * `reviews.csv`
 
 ---
 
 ## Tech Stack
-- Snowflake (SQL)
-- Basic preprocessing in Python (optional)
-- Outputs exported as CSV for reporting
+
+* Snowflake (SQL)
+* Python (basic preprocessing, optional)
+* CSV exports for downstream analysis or reporting
 
 ---
 
 ## Data Modeling (Star Schema)
 
 ### Fact Tables
-- **FACT_CALENDAR**  
-  Daily grain (one row per listing per date)  
-  Fields: availability, daily listed price
 
-- **FACT_REVIEWS**  
+* **FACT_CALENDAR**
+  Daily grain (one row per listing per date)
+  Key fields: availability, daily listed price
+
+* **FACT_REVIEWS**
   Event grain (one row per review)
 
 ### Dimension Tables
-- **DIM_LISTING** – property, location, pricing, review attributes  
-- **DIM_HOST** – host-level attributes  
-- **DIM_DATE** – calendar attributes (year, month, weekday, weekend, etc.)
 
-Detailed schema notes are in `/schema/star_schema.md`.
+* **DIM_LISTING** – property, location, pricing, and review attributes
+* **DIM_HOST** – host-level attributes
+* **DIM_DATE** – calendar attributes (year, month, weekday, weekend, etc.)
+
+Detailed schema documentation is available in `/schema/star_schema.md`.
 
 ---
 
 ## Key Business Questions Answered
+
 1. Which neighborhoods have the highest occupancy?
 2. How does listed price (ADR) change by month?
 3. Where is pricing most seasonal?
@@ -48,41 +54,67 @@ Detailed schema notes are in `/schema/star_schema.md`.
 5. Which listings show declining demand over time?
 6. How long does it take for listings to receive their first observed booking?
 
-All SQL used to answer these questions is in `/sql/04_analysis_queries.sql`.
+### SQL Files
+
+* Questions 1–5: `/sql/Questions(1-5).sql`
+* Questions 6–10: `/sql/Questions(6-10).sql`
+
+Each file contains clearly labeled query sections corresponding to the questions above.
 
 ---
 
 ## Data Quality & Validation
-Basic data quality checks were performed, including:
-- Primary key uniqueness
-- Null rate checks
-- Referential integrity between fact and dimension tables
-- Range checks on pricing and occupancy metrics
 
-Queries are documented in `/sql/Questions(1-5).sql`.
+Basic data quality checks were performed, including:
+
+* Primary key uniqueness
+* Null rate checks
+* Referential integrity between fact and dimension tables
+* Range and sanity checks on pricing and availability metrics
+
+Validation queries are included alongside the analysis SQL.
 
 ---
 
 ## Assumptions & Limitations
-- `available = TRUE` is used to represent listed price (ADR).  
-  Price is often missing when `available = FALSE`, so booked revenue is not directly calculated.
-- Occupancy is treated as a proxy based on availability, not confirmed bookings.
-- “Time to first booking” is measured from the earliest calendar date available for a listing to the first observed booked date, not the true listing creation date.
 
-Details are documented in `/docs/assumptions_limitations.md`.
+* `available = TRUE` is used as a proxy for listed price (ADR).
+  Prices are often missing when `available = FALSE`, so booked revenue is not directly calculated.
+* Occupancy is inferred from availability and should be treated as a proxy, not confirmed bookings.
+* “Time to first booking” is measured from the earliest available calendar date for a listing to the first observed unavailable date, not the true listing creation date.
+
+Detailed assumptions are documented in `/docs/assumptions_limitations.md`.
 
 ---
 
 ## How to Run
-1. Load raw Airbnb CSVs into `AIRBNB_DB.RAW`
-2. Create dimensions using `/sql/Questions(1-5).sql`
-3. Create fact tables using `/sql/Questions(1-5).sql`
-4. Run analysis queries in `/sql/Questions(1-5).sql`
-5. Export selected outputs from Snowflake as CSV
 
----Questions(6-10).sql
+1. Load raw Airbnb CSVs into `AIRBNB_DB.RAW`
+2. Create dimension and fact tables using the SQL files in `/sql`
+3. Run analysis queries in:
+
+   * `/sql/Questions(1-5).sql`
+   * `/sql/Questions(6-10).sql`
+4. Export selected query outputs from Snowflake as CSV if needed
+
+---
+
+## Visualization Note
+
+Power BI dashboards were originally planned for this project.
+However, due to account and web connectivity limitations, visualization was intentionally skipped to keep the focus on **correct data modeling, SQL logic, and analytical reasoning**.
+The exported query outputs are structured to be easily consumed by BI tools such as Power BI or Tableau.
+
+---
 
 ## Notes
-This project focuses on SQL-based analytics and data modeling.  
-Visualization tools were intentionally kept lightweight to emphasize analytical reasoning and correctness over tooling.
-=======
+
+This project intentionally emphasizes SQL-based analytics, dimensional modeling, and data correctness over visualization tooling.
+The structure and queries reflect patterns commonly used in real-world analytics and BI workflows.
+
+---
+
+If you want next:
+
+* I can **tighten this further for a recruiter skim (30-second read)**
+* Or help you write **resume bullets directly from this project**
