@@ -53,6 +53,10 @@ Detailed schema documentation is available in `/schema/star_schema.md`.
 4. Are weekends priced at a premium compared to weekdays?
 5. Which listings show declining demand over time?
 6. How long does it take for listings to receive their first observed booking?
+7. Which listings show declining demand over time?
+8. How seasonal is pricing across neighborhoods?
+9. Do better-reviewed listings show higher booking pressure?
+10. How quickly do listings receive their first observed booking?
 
 ### SQL Files
 
