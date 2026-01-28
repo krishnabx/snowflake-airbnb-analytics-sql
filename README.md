@@ -113,8 +113,3 @@ This project intentionally emphasizes SQL-based analytics, dimensional modeling,
 The structure and queries reflect patterns commonly used in real-world analytics and BI workflows.
 
 ---
-
-If you want next:
-
-* I can **tighten this further for a recruiter skim (30-second read)**
-* Or help you write **resume bullets directly from this project**
