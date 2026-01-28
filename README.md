@@ -52,7 +52,7 @@ Detailed schema documentation is available in `/schema/star_schema.md`.
 3. Where is pricing most seasonal?
 4. Are weekends priced at a premium compared to weekdays?
 5. Which listings show declining demand over time?
-6. How long does it take for listings to receive their first observed booking?
+6. Compare performance of superhosts vs non-superhosts (Superhost impact)
 7. Which listings show declining demand over time?
 8. How seasonal is pricing across neighborhoods?
 9. Do better-reviewed listings show higher booking pressure?
