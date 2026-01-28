@@ -19,8 +19,8 @@ The goal of this project is to model raw Airbnb data into a clean analytical (st
 ## Tech Stack
 
 * Snowflake (SQL)
-* Python (basic preprocessing, optional)
-* CSV exports for downstream analysis or reporting
+* Python (basic preprocessing)
+* CSV exports for downstream analysis 
 
 ---
 
@@ -102,7 +102,7 @@ Detailed assumptions are documented in `/docs/assumptions_limitations.md`.
 ## Visualization Note
 
 Power BI dashboards were originally planned for this project.
-However, due to account and web connectivity limitations, visualization was intentionally skipped to keep the focus on **correct data modeling, SQL logic, and analytical reasoning**.
+However, due to account and Power BI 9web version) connectivity limitations, visualization was intentionally skipped to keep the focus on **correct data modeling, SQL logic, and analytical reasoning**.
 The exported query outputs are structured to be easily consumed by BI tools such as Power BI or Tableau.
 
 ---
