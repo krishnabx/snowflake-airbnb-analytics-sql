@@ -17,6 +17,8 @@ This project models raw Airbnb CSV data into a dimensional (star) schema in Snow
 - `available` (boolean)
 - `daily_price` (listed price when available)
 
+**Occupancy proxy:** `available = FALSE` indicates a likely booked night.
+
 **Purpose**
 Used for occupancy proxy, pricing trends, seasonality, and weekend vs weekday analysis.
 
@@ -34,6 +36,8 @@ Used for occupancy proxy, pricing trends, seasonality, and weekend vs weekday an
 - `reviewer_id`
 - `reviewer_name`
 - `comments`
+
+**Note:** Review activity is treated as a behavioral signal, not a direct performance metric.
 
 **Purpose**
 Used to analyze review volume and connect review activity to listing performance signals.
