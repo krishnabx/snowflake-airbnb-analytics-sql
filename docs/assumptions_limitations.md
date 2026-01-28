@@ -5,7 +5,7 @@
 - Price is often missing or not usable for `available = FALSE` (booked/unavailable), so analyses avoid claiming realized revenue.
 
 2) Occupancy definition
-- Occupancy proxy = share of dates where `available = FALSE` for a listing/neighborhood over the dataset period.
+- Occupancy proxy is calculated as the share of calendar dates where `available = FALSE`.
 
 3) “New listing performance”
 - Time-to-first-booking is calculated from the earliest calendar date present for that listing to the first observed booked date.
